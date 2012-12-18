@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence">
+
+	<persistence-unit name="mysql" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>com.mz.webnaplo.domains.User</class>
+		<class>com.mz.webnaplo.domains.Address</class>
+		<class>com.mz.webnaplo.domains.Role</class>
+		<class>com.mz.webnaplo.domains.Gallery</class>
+		<class>com.mz.webnaplo.domains.Picture</class>
+		<class>com.mz.webnaplo.domains.SystemSettings</class>
+		<class>com.mz.webnaplo.domains.fileupload.UploadedFile</class>
+		
+		
+		<properties>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/webnaplo" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.show.sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.connection.useUnicode" value="true" />
+			<property name="hibernate.connection.characterEncoding" value="UTF-8" />
+			<property name="hibernate.connection.charSet" value="UTF-8" />
+		</properties>
+	</persistence-unit>
+	
+</persistence>

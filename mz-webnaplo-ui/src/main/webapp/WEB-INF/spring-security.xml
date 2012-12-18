@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<http pattern="/resources" security="none" />
+	
+	<http auto-config="true" use-expressions="true">
+		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/user/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/fb/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/tw/**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/auth/**" access="isAuthenticated()" />
+		<intercept-url pattern="/**" access="permitAll" />
+		
+<!-- 		<intercept-url pattern="/login" access="permitAll"/> -->
+<!-- 		<intercept-url pattern="/logout" access="permitAll"/> -->
+<!-- 		<intercept-url pattern="/denied" access="hasRole('ROLE_USER')"/> -->
+<!-- 		<intercept-url pattern="/" access="hasRole('ROLE_USER')"/> -->
+<!-- 		<intercept-url pattern="/user" access="hasRole('ROLE_USER')"/> -->
+<!-- 		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/> -->
+		
+		<form-login	
+			login-page="/login" 
+			default-target-url="/auth/welcome"
+			authentication-failure-url="/login/failure" 
+		/>
+		
+		<access-denied-handler error-page="/denied"/>
+		
+		<logout 
+			invalidate-session="true" 
+			logout-success-url="/logout/success"
+			logout-url="/logout" 
+		/>
+		
+		<session-management>
+			<concurrency-control max-sessions="1" expired-url="/error" />
+		</session-management>
+	</http>
+
+	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="${app.jdbc.driverClassName}" />
+		<beans:property name="url" value="${app.jdbc.url}" />
+		<beans:property name="username" value="${app.jdbc.username}" />
+		<beans:property name="password" value="${app.jdbc.password}" />
+	</beans:bean>
+
+	<beans:bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="applicationSecurityService">
+			<password-encoder hash="plaintext" />
+		</authentication-provider>
+	</authentication-manager>
+
+<!--
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="applicationSecurityService">
+ 			<password-encoder ref="passwordEncoder"></password-encoder>
+		</authentication-provider>
+	</authentication-manager>
+
+
+
+
+ 	<authentication-manager> 
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="dataSource" 
+				users-by-username-query="SELECT username, password, enabled, activated FROM user WHERE username = ?"
+				authorities-by-username-query="SELECT u.username, r.name FROM user_role ur 
+                  	INNER JOIN role r ON r.id = ur.role_id
+  					INNER JOIN user u ON u.id = ur.user_id
+  					WHERE u.username = ?"
+			/>
+		</authentication-provider>
+	</authentication-manager>
+-->
+</beans:beans>

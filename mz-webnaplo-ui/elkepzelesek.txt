@@ -1,0 +1,53 @@
+1=domain szinten ok / 2=gui szinten ok
+
+USER
+==============
+1	- last login
+1	- addresses
+	- roles (előre definiálni)
+	- socialize login (shallow user)
+1	- gallery (jogosultságok), pictures (típusba sorolás)
+	- avatar
+	- registration
+	- activation
+	- who is logged in
+	- contact us
+	- about me
+	- levelezés
+	- értesítés
+	- rendszerüzenet
+	- látogatók (who visited me - admin nem!) vagy mi melyik commandot használtuk utoljára (recently viewed forms)
+	- ismerősök/kedvencek/barátok = contacts, approve/reject, tilt, custom restrictions (profile, gallery, contactable)
+	- fórum, napló, logok, statisztikák, naptár, events.......
+
+system settings / userprofile		(entitás)
+================================
+	- layout (fluid, fixed)
+	- theme (dark/light)
+	- color settings (colorpicker)
+	- background
+	- opening tab (def: dashboard)
+	- date format
+	- localization					(böngészőtől)
+	- languages
+
+MENU
+================
+	- dashboard (what happened since last login)
+	- calendar - marketing, daily/weekly/monthly, todo's, personal events...
+	- login (regular login, socialize login)
+	- messages (táblázatban, filter, ordering, importance, search, entries showing)
+	- contacts
+	- user profile + settings
+	- gallery
+	- monitoring (statistics, logs) + BI (reports)
+	- command line (command pattern, workflow?)
+	- help (website map/commands)
+
+COMMAND (url mapping)
+=========================
+	= create/modify/delete
+	- account
+	- appointment
+	- contact
+	- task....

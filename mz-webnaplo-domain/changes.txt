@@ -1,0 +1,9 @@
+2012-12-06
+- Gallery, Picture, SystemSettings domainek létrehozása és integrálása User-be 
+
+2012-12-04
+- User, Gender, Address, Role domainek elkészítése (constraint nélkül)
+
+2012-12-03
+- Maven multimodule váz létrehozása (webnaplo, -domain, -repository, -service, -ui)
+- User domain elkészítése

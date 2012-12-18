@@ -1,0 +1,8 @@
+2012-12-06
+- gallery- és picture repository készítése
+
+2012-12-04
+- repo struktúra kialakítása (abstract osztályok, interfészek), UserRepository elkészítése
+
+2012-12-03
+- Maven multimodule váz létrehozása (webnaplo, -domain, -repository, -service, -ui)

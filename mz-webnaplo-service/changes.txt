@@ -1,0 +1,8 @@
+2012-12-06
+- Gallery- és picture service készítése 
+
+2012-12-04
+- Service struktúra kialakítása, UserService elkészítése
+
+2012-12-03
+- Maven multimodule váz létrehozása (webnaplo, -domain, -repository, -service, -ui)

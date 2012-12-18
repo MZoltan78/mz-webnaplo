@@ -1,0 +1,36 @@
+			
+				USER
+				=====
+				long		id
+				String		*email				(reg)
+				String		username			(reg)
+				String		password			(reg)
+				String		description			(about)
+				Gender		gender				(about)	-----------------------------	GENDER (enum) : MALE / FEMALE 
+				Date 		birthdate			(about)
+				String		phone				(availability)
+		  	+--	Address 	address				(availability)	1:1	relationship
+		+--	| -	Set<Role> 	roles				(security)
+		|	|	int 		enabled				(reg)
+		|	|	int 		activated			(reg)
+		|	|	int			registrationType	(reg)
+		|	|	Date 		registrationDate	(reg)
+		|	|
+		|	|	+ gallery/pictures , avatar... (később)
+		|	|	+ login időpontok
+		|	|	
+		|	|	
+		|	|	
+		|	|	ADDRESS
+		|	|	========
+		| 	+--	long		id
+		|		String		city
+		|		String		zip
+		|		String		street
+		|		
+		|		
+		|		ROLE
+		|		=====
+		|		long 		id
+		|		String 		*name
+		+------	Set<User> 	users

@@ -1,0 +1,6 @@
+2012-12-05
+- Apache Tiles bekonfigurálása
+- ApplicationStartupListener tesztadatokkal való tesztelése
+
+2012-12-03
+- Maven multimodule váz létrehozása (webnaplo, -domain, -repository, -service, -ui)

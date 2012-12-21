@@ -1,22 +1,26 @@
-<h2>
-	LOGIN <small>subtitle</small>
-</h2>
+<c:if test="${not empty param.login_error}">
+	<font color="red"> Your login attempt was not successful, try
+	again.<br />
+	<br />
+	Reason: <c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />. </font>
+</c:if>
 
-<form class="login-form" action="j_spring_security_check" method="post">
-	<fieldset>
-		<legend>Login Here</legend>
+<h1> Social Update Status Demo App</h1>
 
-		<p>
-			<label for="j_username">Username</label>: <input id="j_username" name="j_username" size="20" maxlength="50" type="text" />
-		</p>
-
-		<p>
-			<label for="j_password">Password</label>: <input id="j_password" name="j_password" size="20" maxlength="50" type="password" />
-		</p>
-
-		<p>
-			<input type="submit" value="Login" />
-		</p>
-	</fieldset>
+<h2>Login:</h2>
+<form action="<c:url value='/j_spring_security_check'/>" method="post">
+	<table>
+		<tr>
+			<td>User Name:</td>
+			<td><input type="text" name='j_username'
+				value='<c:if test="${not empty param.login_error}"><c:out value="${SPRING_SECURITY_LAST_USERNAME}"/></c:if>' /></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input type='password' name='j_password' /></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="Login" /></td>
+		</tr>
+	</table>
 </form>
-<p class="message">${message}</p>

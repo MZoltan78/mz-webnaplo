@@ -135,6 +135,8 @@ public class ApplicationStartupListener implements ServletContextListener {
 		SystemSettings sys1 = new SystemSettings();
 		sys1.setLocale(Locale.ENGLISH);
 		sys1.setUser(user);
+		user.setFacebookClientId("224886380976924");
+		user.setFacebookClientSecret("cbf8d7fd4c1fd8a06c863ef7abf7108c");
 		user.setSystemSettings(sys1);
 		
 		Gallery gal1 = new Gallery();

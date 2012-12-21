@@ -84,6 +84,19 @@ public class User {
 	@OneToOne(mappedBy="user", cascade=CascadeType.ALL)
 	private SystemSettings systemSettings;
 	
+	// linkedin connection information
+	private String linkedInAccessToken;
+	private String linkedInSecret;
+	
+	// facebook connection information
+	private String facebookClientId;
+	private String facebookClientSecret;
+	
+	// twitter connection information
+	private String twitterAccessToken;
+	private String twitterSecret;
+	
+	
 	/**
 	 * ******************** Constructor ***********************
 	 */
@@ -260,6 +273,54 @@ public class User {
 
 	public void setSystemSettings(SystemSettings systemSettings) {
 		this.systemSettings = systemSettings;
+	}
+
+	public String getLinkedInAccessToken() {
+		return linkedInAccessToken;
+	}
+
+	public void setLinkedInAccessToken(String linkedInAccessToken) {
+		this.linkedInAccessToken = linkedInAccessToken;
+	}
+
+	public String getLinkedInSecret() {
+		return linkedInSecret;
+	}
+
+	public void setLinkedInSecret(String linkedInSecret) {
+		this.linkedInSecret = linkedInSecret;
+	}
+
+	public String getFacebookClientId() {
+		return facebookClientId;
+	}
+
+	public void setFacebookClientId(String facebookClientId) {
+		this.facebookClientId = facebookClientId;
+	}
+
+	public String getFacebookClientSecret() {
+		return facebookClientSecret;
+	}
+
+	public void setFacebookClientSecret(String facebookClientSecret) {
+		this.facebookClientSecret = facebookClientSecret;
+	}
+
+	public String getTwitterAccessToken() {
+		return twitterAccessToken;
+	}
+
+	public void setTwitterAccessToken(String twitterAccessToken) {
+		this.twitterAccessToken = twitterAccessToken;
+	}
+
+	public String getTwitterSecret() {
+		return twitterSecret;
+	}
+
+	public void setTwitterSecret(String twitterSecret) {
+		this.twitterSecret = twitterSecret;
 	}
 
 	/**

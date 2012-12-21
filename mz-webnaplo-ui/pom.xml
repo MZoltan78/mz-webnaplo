@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -15,35 +14,41 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<!-- Apache File Upload --> 
-<!-- 		<commons.fileupload.version>1.2.2</commons.fileupload.version> -->
-<!-- 		<commons.io.version>2.1</commons.io.version> -->
-		 <!-- Spring Social -->
-		<spring.social.version>1.0.2.RELEASE</spring.social.version>
-		<spring.social.facebook.version>1.0.2.RELEASE</spring.social.facebook.version>
-		<spring.social.twitter.version>1.0.2.RELEASE</spring.social.twitter.version>
-		<thymeleaf.version>2.0.14</thymeleaf.version>
+		<!-- Spring Social -->
+		<spring.social.version>1.1.0.BUILD-SNAPSHOT</spring.social.version>
+		<spring.social.facebook.version>1.1.0.BUILD-SNAPSHOT</spring.social.facebook.version>
+		<spring.social.twitter.version>1.1.0.BUILD-SNAPSHOT</spring.social.twitter.version>
 	</properties>
+
+	<repositories>
+	</repositories>
 
 	<dependencies>
 
-	<!-- Thymeleaf -->
-		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf</artifactId>
-			<version>${thymeleaf.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf-spring3</artifactId>
-			<version>${thymeleaf.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
 	
-	<!-- Spring Social -->
+		<!-- QR Code generator -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>javase</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.2.1</version>
+		</dependency>
+
+		<!-- Spring Social -->
+		<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-core</artifactId>
+			<version>${spring.social.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.social</groupId>
 			<artifactId>spring-social-web</artifactId>
@@ -56,24 +61,16 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-facebook-web</artifactId>
+			<version>${spring.social.facebook.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.social</groupId>
 			<artifactId>spring-social-twitter</artifactId>
 			<version>${spring.social.twitter.version}</version>
 		</dependency>
-	
-	<!-- Apache File Upload 
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>${commons.fileupload.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons.io.version}</version>
-		</dependency>
-	-->
-		
-	<!-- Apache Tiles and its dependencies -->
+
+		<!-- Apache Tiles and its dependencies -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-core</artifactId>
@@ -105,7 +102,7 @@
 			<artifactId>tiles-template</artifactId>
 			<version>${apache-tiles.version}</version>
 		</dependency>
-		
+
 		<!-- entity -->
 		<dependency>
 			<groupId>com.mz.webnaplo</groupId>
@@ -124,14 +121,14 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<!-- spring mvc fw -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		
+
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -150,7 +147,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -174,7 +171,13 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-crypto</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+
 		<!-- validation -->
 		<dependency>
 			<groupId>org.hibernate</groupId>

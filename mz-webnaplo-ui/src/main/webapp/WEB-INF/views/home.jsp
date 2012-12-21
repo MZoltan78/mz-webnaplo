@@ -1,9 +1,32 @@
-<h2>HOME <small>subtitle</small></h2>
+<h1>HOME</h1>
 
-<c:url var="adminUrl" value="/admin/welcome" />
-admin page: <a href="${adminUrl}">LINK</a>
+login page: <a href="<c:url value='/login'/>">LOGIN</a><br/>
+admin page: <a href="<c:url value='/admin/welcome'/>">ADMIN</a><br/>
+auth page: <a href="<c:url value='/auth/welcome'/>">AUTH</a><br/>
+Attack page: <a href="<c:url value='/attack'/>">ATTACK</a><br/>
+QR Code page: <a href="<c:url value='/qr'/>">QR CODE</a><br/><br/>
 
+facebook: <a href="<c:url value="/connect/facebook" />">Connect to facebook (GET)</a>		<br/><br/>
+example get: <a href="<c:url value="/facebook/example" />">Example (GET)</a>		<br/><br/>
+<a href="<c:url value="/connect" />">Your connections</a>	<br/><br/>
+
+<!-- FACEBOOK SIGNIN -->
+<form name="fb_signin" id="fb_signin" action="<c:url value="/signin/facebook"/>" method="POST">
+       <input type="hidden" name="scope" value="publish_stream,user_photos,offline_access" />
+	<button type="submit">SIGN-IN FB</button>
+</form>
+
+<form action="<c:url value="/signin/facebook" />" method="POST">
+    <button type="submit">Sign in with Facebook</button>
+    <input type="hidden" name="scope" value="email,publish_stream,offline_access" />		    
+</form>
 <br/><br/>
+
+actual connection :
+<img src="${connection.imageUrl}" /> <a href="${connection.profileUrl}">${connection.displayName}</a>
+<br/><br/>
+
+
 
 <!--
 nem működik!! 

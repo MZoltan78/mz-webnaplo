@@ -8,7 +8,9 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/main/webapp/WEB-INF/spring/ui-root-context.xml</config>
-		<config>src/main/webapp/WEB-INF/spring/appServlet/ui-servlet-context.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/spring-security.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/ui-application.xml</config>
+		<config>src/main/resources/META-INF/spring/social.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
